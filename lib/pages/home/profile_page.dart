@@ -6,6 +6,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    PageProvider pageProvider = Provider.of<PageProvider>(context);
     UserModel user = authProvider.user;
     Widget header() {
       return AppBar(
@@ -53,6 +54,7 @@ class ProfilePage extends StatelessWidget {
                     UserPreferences().removeUser();
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/sign-in', (route) => false);
+                    pageProvider.currentIndex = 0;
                   },
                   child: Image.asset(
                     'assets/button_exit.png',

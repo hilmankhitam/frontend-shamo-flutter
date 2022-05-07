@@ -12,6 +12,12 @@ class _DetailChatPageState extends State<DetailChatPage> {
   TextEditingController messageController = TextEditingController(text: '');
 
   @override
+  void dispose() {
+    messageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
